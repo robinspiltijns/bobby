@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Made a PR</h1>
+      <h1>Bobby</h1>
       <input onChange={(e => setidea(e.target.value))}/>
       <button onClick={submit}>Submit</button>
     </div>
