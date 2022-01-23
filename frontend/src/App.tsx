@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Firebase from "./firebase/firebase";
 import {set, ref} from 'firebase/database'
 
 function App() {
   const firebase = new Firebase()
-  const onClick = () => {
-    set(ref(firebase.getDb(), 'users/'), {
-      user: "Robin"
-    }).then(() => console.log("succesful!"));
+  const [idea, setidea] = useState("")
+  const submit = () => {
+    set(ref(firebase.getDb(), 'ideas/'), {
+      idea
+    }).then(() => console.log("successful!"));
   }
 
   return (
     <div className="App">
-      <button onClick={onClick}>Add document</button>
+      <h1>Made a PR</h1>
+      <input onChange={(e => setidea(e.target.value))}/>
+      <button onClick={submit}>Submit</button>
     </div>
   );
 }
