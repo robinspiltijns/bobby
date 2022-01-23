@@ -15,4 +15,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOBBY_AC17D }}'
           projectId: bobby-ac17d
-          projectPath: "./frontend"
+          entryPoint: "./frontend"
