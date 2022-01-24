@@ -1,22 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
-import Firebase from "./firebase/firebase";
-import {set, ref} from 'firebase/database'
+import {getFirestore, doc, setDoc} from 'firebase/firestore'
 
 function App() {
-  const firebase = new Firebase()
+  const db = getFirestore()
   const [idea, setidea] = useState("")
-  const submit = () => {
-    set(ref(firebase.getDb(), 'ideas/'), {
-      idea
-    }).then(() => console.log("successful!"));
-  }
-
   return (
     <div className="App">
       <h1>Bobby.</h1>
       <input onChange={(e => setidea(e.target.value))}/>
-      <button onClick={submit}>Submit</button>
+      <button>Submit</button>
     </div>
   );
 }
