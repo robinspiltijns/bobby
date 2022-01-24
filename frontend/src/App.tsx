@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import './App.css';
 import Firebase from "./firebase/firebase";
-import {set, ref} from 'firebase/database'
+import { collection, addDoc } from "firebase/firestore"; 
+
 
 function App() {
   const firebase = new Firebase()
+  const db = firebase.getDb()
   const [idea, setidea] = useState("")
-  const submit = () => {
-    set(ref(firebase.getDb(), 'ideas/'), {
+  const submit = async () => {
+    const docRef = await addDoc(collection(db, "ideas"), {
       idea
-    }).then(() => console.log("successful!"));
+    });
+    console.log(docRef);
   }
 
   return (
