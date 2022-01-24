@@ -1,5 +1,6 @@
 import {initializeApp} from 'firebase/app'
-import {getDatabase} from 'firebase/database'
+import { getFirestore } from "firebase/firestore"
+
 
 const config = {
     apiKey: "AIzaSyAuP9KfbzTBHWGhD7h0xG1jy0DqlGznJh4",
@@ -15,7 +16,7 @@ const config = {
 class Firebase {
     constructor() {
         this.app = initializeApp(config)
-        this.database = getDatabase(this.app)
+        this.database = getFirestore()
     }
     private readonly app
     private readonly database
